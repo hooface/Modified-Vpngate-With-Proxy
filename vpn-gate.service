@@ -1,0 +1,15 @@
+[Unit]
+Description=Vpn-gate
+After=network.target nss-lookup.target
+
+[Service]
+Type=simple
+KillMode=mixed
+WorkingDirectory=/YourPath
+ExecStart=python3 /YourPath/vpnproxy_auto.py /root
+Restart=on-failure
+#Restart=no
+RestartSec=60
+
+[Install]
+WantedBy=multi-user.target
